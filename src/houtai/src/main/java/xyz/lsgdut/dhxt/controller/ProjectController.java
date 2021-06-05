@@ -24,7 +24,8 @@ public class ProjectController {
     @RequestMapping("/publishProject")
     @ResponseBody
     public JSONResult publishProject(@RequestBody TbProject project, HttpServletRequest request) {
-        if (request.getSession().getAttribute("userId").toString() == null) {
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
+        if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
         TbProject project1 = projectService.publishProject(project);
@@ -39,7 +40,8 @@ public class ProjectController {
     @RequestMapping("/joinProject")
     @ResponseBody
     public JSONResult joinProject(@RequestBody JoinProjectBO joinProjectBO, HttpServletRequest request) {
-        if (request.getSession().getAttribute("userId").toString() == null) {
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
+        if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
         JoinProjectBO result = projectService.joinProject(joinProjectBO);
@@ -53,7 +55,8 @@ public class ProjectController {
     @RequestMapping("/getProjectInfoById")
     @ResponseBody
     public JSONResult getProjectInfoById(@RequestBody TbProject project, HttpServletRequest request) {
-        if (request.getSession().getAttribute("userId").toString() == null) {
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
+        if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
         List<TbProject> projects = projectService.getProjectInfoById(project.getProjectId());
@@ -70,15 +73,15 @@ public class ProjectController {
     @RequestMapping("/getMinePublishProjectInfo")
     @ResponseBody
     public JSONResult getMinePublishProjectInfo( HttpServletRequest request) {
-        String userId = request.getSession().getAttribute("userId").toString();
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbProject> projects = projectService.getMinePublishProjectInfo(Integer.parseInt(userId));
+        List<TbProject> projects = projectService.getMinePublishProjectInfo(userId);
         if (projects.size() == 0) {
             return JSONResult.errorMsg("查询失败");
         } else {
-            return JSONResult.ok(projects.get(0));
+            return JSONResult.ok(projects);
         }
     }
 
@@ -86,15 +89,31 @@ public class ProjectController {
     @RequestMapping("/getMineServeProjectInfo")
     @ResponseBody
     public JSONResult getMineServeProjectInfo( HttpServletRequest request) {
-        String userId = request.getSession().getAttribute("userId").toString();
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbProject> projects = projectService.getMineServeProjectInfo(Integer.parseInt(userId));
+        List<TbProject> projects = projectService.getMineServeProjectInfo(userId);
         if (projects.size() == 0) {
             return JSONResult.errorMsg("查询失败");
         } else {
-            return JSONResult.ok(projects.get(0));
+            return JSONResult.ok(projects);
+        }
+    }
+
+    //管理员获得所有项目
+    @RequestMapping("/getAllProjects")
+    @ResponseBody
+    public JSONResult getAllProjects( HttpServletRequest request) {
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
+        if (userId == null) {
+            return JSONResult.errorMsg("未登录");
+        }
+        List<TbProject> projects = projectService.getAllProjects();
+        if (projects.size() == 0) {
+            return JSONResult.errorMsg("查询失败");
+        } else {
+            return JSONResult.ok(projects);
         }
     }
 

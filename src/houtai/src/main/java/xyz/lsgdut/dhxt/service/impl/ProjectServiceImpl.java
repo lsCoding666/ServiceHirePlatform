@@ -86,6 +86,15 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public List<TbProject> getAllProjects() {
+        TbProjectExample example = new TbProjectExample();
+        TbProjectExample.Criteria criteria = example.createCriteria();
+        criteria.andProjectIdIsNotNull();
+        List<TbProject> projects = projectMapper.selectByExample(example);
+        return projects;
+    }
+
+    @Override
     public  List<TbProject> getMinePublishProjectInfo(int userId) {
         TbProjectExample example = new TbProjectExample();
         TbProjectExample.Criteria criteria = example.createCriteria();

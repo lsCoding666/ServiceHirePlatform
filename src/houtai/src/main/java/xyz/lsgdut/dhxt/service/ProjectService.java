@@ -20,4 +20,7 @@ public interface ProjectService {
 
     //自由职业者查询自己接的项目
     List<TbProject> getMineServeProjectInfo(int userId);
+
+    //管理员获得所有项目
+    List<TbProject> getAllProjects();
 }
