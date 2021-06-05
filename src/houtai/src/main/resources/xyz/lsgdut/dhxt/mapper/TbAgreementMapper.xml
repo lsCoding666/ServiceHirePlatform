@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.lsgdut.dhxt.mapper.TbAgreementMapper">
+  <resultMap id="BaseResultMap" type="xyz.lsgdut.dhxt.pojo.TbAgreement">
+    <id column="agreement_id" jdbcType="INTEGER" property="agreementId" />
+    <result column="agreement_sign_date" jdbcType="DATE" property="agreementSignDate" />
+    <result column="agreement_start_date" jdbcType="DATE" property="agreementStartDate" />
+    <result column="agreement_end_date" jdbcType="DATE" property="agreementEndDate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="xyz.lsgdut.dhxt.pojo.TbAgreement">
+    <result column="agreement_html" jdbcType="LONGVARCHAR" property="agreementHtml" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    agreement_id, agreement_sign_date, agreement_start_date, agreement_end_date
+  </sql>
+  <sql id="Blob_Column_List">
+    agreement_html
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="xyz.lsgdut.dhxt.pojo.TbAgreementExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_agreement
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="xyz.lsgdut.dhxt.pojo.TbAgreementExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_agreement
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_agreement
+    where agreement_id = #{agreementId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_agreement
+    where agreement_id = #{agreementId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="xyz.lsgdut.dhxt.pojo.TbAgreementExample">
+    delete from tb_agreement
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="xyz.lsgdut.dhxt.pojo.TbAgreement">
+    insert into tb_agreement (agreement_id, agreement_sign_date, agreement_start_date, 
+      agreement_end_date, agreement_html)
+    values (#{agreementId,jdbcType=INTEGER}, #{agreementSignDate,jdbcType=DATE}, #{agreementStartDate,jdbcType=DATE}, 
+      #{agreementEndDate,jdbcType=DATE}, #{agreementHtml,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="xyz.lsgdut.dhxt.pojo.TbAgreement">
+    insert into tb_agreement
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="agreementId != null">
+        agreement_id,
+      </if>
+      <if test="agreementSignDate != null">
+        agreement_sign_date,
+      </if>
+      <if test="agreementStartDate != null">
+        agreement_start_date,
+      </if>
+      <if test="agreementEndDate != null">
+        agreement_end_date,
+      </if>
+      <if test="agreementHtml != null">
+        agreement_html,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="agreementId != null">
+        #{agreementId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementSignDate != null">
+        #{agreementSignDate,jdbcType=DATE},
+      </if>
+      <if test="agreementStartDate != null">
+        #{agreementStartDate,jdbcType=DATE},
+      </if>
+      <if test="agreementEndDate != null">
+        #{agreementEndDate,jdbcType=DATE},
+      </if>
+      <if test="agreementHtml != null">
+        #{agreementHtml,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="xyz.lsgdut.dhxt.pojo.TbAgreementExample" resultType="java.lang.Long">
+    select count(*) from tb_agreement
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_agreement
+    <set>
+      <if test="record.agreementId != null">
+        agreement_id = #{record.agreementId,jdbcType=INTEGER},
+      </if>
+      <if test="record.agreementSignDate != null">
+        agreement_sign_date = #{record.agreementSignDate,jdbcType=DATE},
+      </if>
+      <if test="record.agreementStartDate != null">
+        agreement_start_date = #{record.agreementStartDate,jdbcType=DATE},
+      </if>
+      <if test="record.agreementEndDate != null">
+        agreement_end_date = #{record.agreementEndDate,jdbcType=DATE},
+      </if>
+      <if test="record.agreementHtml != null">
+        agreement_html = #{record.agreementHtml,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tb_agreement
+    set agreement_id = #{record.agreementId,jdbcType=INTEGER},
+      agreement_sign_date = #{record.agreementSignDate,jdbcType=DATE},
+      agreement_start_date = #{record.agreementStartDate,jdbcType=DATE},
+      agreement_end_date = #{record.agreementEndDate,jdbcType=DATE},
+      agreement_html = #{record.agreementHtml,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_agreement
+    set agreement_id = #{record.agreementId,jdbcType=INTEGER},
+      agreement_sign_date = #{record.agreementSignDate,jdbcType=DATE},
+      agreement_start_date = #{record.agreementStartDate,jdbcType=DATE},
+      agreement_end_date = #{record.agreementEndDate,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="xyz.lsgdut.dhxt.pojo.TbAgreement">
+    update tb_agreement
+    <set>
+      <if test="agreementSignDate != null">
+        agreement_sign_date = #{agreementSignDate,jdbcType=DATE},
+      </if>
+      <if test="agreementStartDate != null">
+        agreement_start_date = #{agreementStartDate,jdbcType=DATE},
+      </if>
+      <if test="agreementEndDate != null">
+        agreement_end_date = #{agreementEndDate,jdbcType=DATE},
+      </if>
+      <if test="agreementHtml != null">
+        agreement_html = #{agreementHtml,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where agreement_id = #{agreementId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="xyz.lsgdut.dhxt.pojo.TbAgreement">
+    update tb_agreement
+    set agreement_sign_date = #{agreementSignDate,jdbcType=DATE},
+      agreement_start_date = #{agreementStartDate,jdbcType=DATE},
+      agreement_end_date = #{agreementEndDate,jdbcType=DATE},
+      agreement_html = #{agreementHtml,jdbcType=LONGVARCHAR}
+    where agreement_id = #{agreementId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xyz.lsgdut.dhxt.pojo.TbAgreement">
+    update tb_agreement
+    set agreement_sign_date = #{agreementSignDate,jdbcType=DATE},
+      agreement_start_date = #{agreementStartDate,jdbcType=DATE},
+      agreement_end_date = #{agreementEndDate,jdbcType=DATE}
+    where agreement_id = #{agreementId,jdbcType=INTEGER}
+  </update>
+</mapper>
