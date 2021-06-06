@@ -1,0 +1,91 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="navigate_tab_icon_size">24dp</dimen>
+    <dimen name="navigate_tab_text_size">10sp</dimen>
+    <dimen name="navigate_tab_text_margin_bottom">4dp</dimen>
+
+    <!--窗口模式左右两边到屏幕的间距-->
+    <dimen name="margin_alert_left_right">40dp</dimen>
+    <dimen name="margin_actionsheet_left_right">10dp</dimen>
+    <dimen name="radius_alertview">15px</dimen>
+    <!--标题文字大小-->
+    <dimen name="textSize_alert_title">22sp</dimen>
+    <dimen name="textSize_actionsheet_title">14sp</dimen>
+    <!--标题文字高度-->
+    <dimen name="height_alert_title">60dp</dimen>
+    <dimen name="height_actionsheet_title">40dp</dimen>
+    <!--消息文字大小-->
+    <dimen name="textSize_alert_msg">15sp</dimen>
+    <dimen name="textSize_actionsheet_msg">14sp</dimen>
+    <!--消息距离底部间距-->
+    <dimen name="marginBottom_alert_msg">25dp</dimen>
+    <dimen name="marginBottom_actionsheet_msg">14dp</dimen>
+    <!--线条粗细-->
+    <dimen name="size_divier">1dp</dimen>
+    <!--按钮的高度-->
+    <dimen name="height_alert_button">48dp</dimen>
+    <!--按钮文字大小-->
+    <dimen name="textSize_alert_button">18sp</dimen>
+
+    <dimen name="app_bar_height">240dp</dimen><!--180dp-->
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+
+    <dimen name="division_line">0.5dp</dimen>
+
+    <dimen name="dimenPaddingMin">2.5dp</dimen>
+    <dimen name="dimenPaddingDiminutive">5dp</dimen>
+    <dimen name="dimenPaddingCommon">10dp</dimen>
+    <dimen name="dimenPaddingVertical">10dp</dimen>
+    <dimen name="dimenPaddingMiddle">12.5dp</dimen>
+    <dimen name="dimenPaddingHorizontal">15dp</dimen>
+    <dimen name="dimenPaddingBig">20dp</dimen>
+    <dimen name="dimenPaddingLarge">25dp</dimen>
+
+
+    <dimen name="textsize_small">12sp</dimen>
+    <dimen name="textsize_content">14sp</dimen>
+    <dimen name="textsize_titlesmall">16sp</dimen>
+    <dimen name="textsize_title">17sp</dimen>
+    <dimen name="textsize_titlelarge">19sp</dimen>
+    <dimen name="textsize_titlebar">20sp</dimen>
+
+    <dimen name="dimenTextMin">10sp</dimen>
+    <dimen name="dimenTextSmall">12sp</dimen>
+    <dimen name="dimenTextContent">14sp</dimen>
+    <dimen name="dimenTextTitleSmall">16sp</dimen>
+    <dimen name="dimenTextTitle">17sp</dimen>
+    <dimen name="dimenTextTitleLarge">19sp</dimen>
+    <dimen name="dimenTextTitleBar">20sp</dimen>
+    <dimen name="dimenTextEditText">14sp</dimen>
+
+    <dimen name="text_main_title">18sp</dimen>
+    <dimen name="text_sub_title">15sp</dimen>
+
+    <dimen name="bNVMaginTop">8dp</dimen>
+    <dimen name="titleImageSize">20dp</dimen>
+    <dimen name="titleTextSize">20sp</dimen>
+    <dimen name="font_16">16sp</dimen>
+    <dimen name="dp_200">200dp</dimen>
+    <dimen name="dp_130">130dp</dimen>
+    <dimen name="dp_120">120dp</dimen>
+    <dimen name="dp_115">115dp</dimen>
+    <dimen name="dp_100">100dp</dimen>
+    <dimen name="dp_90">90dp</dimen>
+    <dimen name="dp_80">80dp</dimen>
+    <dimen name="dp_70">70dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+
+
+</resources>

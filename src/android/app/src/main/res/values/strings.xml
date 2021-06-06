@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">itemManagement</string>
+    <string name="management">管理</string>
+    <string name="square">广场</string>
+    <string name="message">消息</string>
+    <string name="mine">我的</string>
+    <string name="items">物品</string>
+    <string name="space">空间</string>
+    <string name="items_space">物/空</string>
+    <string name="prompt_phone">手机号</string>
+    <string name="prompt_forget_password">忘记密码</string>
+    <string name="prompt_passwordConfirm">确认密码</string>
+    <string name="prompt_verificationCode">验证码</string>
+    <string name="action_to_register">注册</string>
+    <string name="prompt_TryToUse">不想注册？先逛逛</string>
+    <string name="action_sendVerificationCode">获取验证码</string>
+    <string name="prompt_err_pwd_confirm_failure">两次输入的密码不一致</string>
+    <string name="prompt_err_phone">请输入正确的手机号码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_out">退出登录</string>
+    <string name="prompt_welcome">Welcome</string>
+    <string name="prompt_account">请输入用户名</string>
+    <string name="prompt_pwd">请输入密码</string>
+    <string name="prompt_pwd_length">密码长度要大于5位</string>
+    <string name="prompt_username_length">用户名长度要大于5位</string>
+    <string name="prompt_vercode_length">验证码为空</string>
+    <string name="action_RetrievePassword">找回密码</string>
+    <string name="local_search_hint">请输入物品名</string>
+    <string name="local_search">搜索</string>
+    <string name="scale_up_show_behavior">com.qiuweifeng.itemmanagement.square.ScaleUpShowBehavior</string>
+
+    <!--添加物品-->
+    <string name="add_item_name">名称</string>
+    <string name="add_item_location">位置</string>
+    <string name="add_item_describe">描述</string>
+    <string name="add_item_category">类别</string>
+    <string name="add_item_position">方位</string>
+    <string name="add_item_attribute">属性</string>
+    <string name="add_item_save">保存</string>
+    <string name="loading">加载中</string>
+    <string name="empty_network_error">网络错误，点击重试</string>
+    <string name="empty_no_data">没有数据 请点击重试</string>
+    <string name="comma">,</string>
+    <string name="IOExceptionEncodeCookie">IOException in encodeCookie</string>
+    <string name="ClassNotFoundException">ClassNotFoundException in decodeCookie</string>
+    <string name="IOExceptionDecodeCookie">IOException in decodeCookie</string>
+    <string name="gsonIsNull">gson == null</string>
+    <string name="MEDIA_TYPE">application/json; charset=UTF-8</string>
+    <string name="PARSE_ERROR_MSG">解析数据失败</string>
+    <string name="BAD_NETWORK_MSG">无网络</string>
+    <string name="errorCode">status</string>
+    <string name="baseUrl">http://192.168.1.249:8081/serviceHire/</string>
+    <string name="CONNECT_ERROR_MSG">连接错误</string>
+    <string name="CONNECT_TIMEOUT_MSG">连接超时</string>
+    <string name="OTHER_MSG">未知错误</string>
+    <string name="manage_project">管理项目</string>
+    <string name="manage_user">管理人员</string>
+    <string name="schedule">时间表</string>
+    <string name="title">标题</string>
+    <string name="manage_project_user">管理项目人员</string>
+    <string name="customer_name">客户名称</string>
+    <string name="create_time">发布时间</string>
+    <string name="start_time">开始时间</string>
+    <string name="end_time">结束时间</string>
+    <string name="project_category">项目类型</string>
+    <string name="user_name">用户名</string>
+    <string name="sex">性别</string>
+    <string name="wechet">微信</string>
+    <string name="email">电子邮件</string>
+    <string name="category">类别</string>
+    <string name="role">角色</string>
+
+</resources>
