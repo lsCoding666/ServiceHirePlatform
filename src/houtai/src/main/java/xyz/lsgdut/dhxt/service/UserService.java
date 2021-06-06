@@ -1,24 +1,25 @@
 package xyz.lsgdut.dhxt.service;
 
 import xyz.lsgdut.dhxt.pojo.TbUser;
+import xyz.lsgdut.dhxt.pojo.VO.UserVO;
 
 import java.util.List;
 
 public interface UserService {
 
-    public List<TbUser> userLogin(String userName, String password);
+    public List<UserVO> userLogin(String userName, String password);
 
-    TbUser queryByUserId(int userId);
+    UserVO queryByUserId(int userId);
 
     String userRegister(TbUser user);
 
-    List<TbUser> getAllUsers();
+    List<UserVO> getAllUsers();
 
-    List<TbUser> getAllServers();
+    List<UserVO> getAllServers();
 
-    List<TbUser> getAllCustomers();
+    List<UserVO> getAllCustomers();
 
-    List<TbUser> getAllAdmins();
+    List<UserVO> getAllAdmins();
 
-    List<TbUser> getAllEmployee();
+    List<UserVO> getAllEmployee();
 }

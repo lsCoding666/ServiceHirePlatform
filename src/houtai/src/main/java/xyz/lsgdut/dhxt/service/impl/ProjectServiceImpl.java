@@ -8,6 +8,7 @@ import xyz.lsgdut.dhxt.mapper.TbSecondPartyMapper;
 import xyz.lsgdut.dhxt.pojo.BO.JoinProjectBO;
 import xyz.lsgdut.dhxt.pojo.*;
 import xyz.lsgdut.dhxt.pojo.VO.ProjectVO;
+import xyz.lsgdut.dhxt.pojo.VO.UserVO;
 import xyz.lsgdut.dhxt.service.CategoryService;
 import xyz.lsgdut.dhxt.service.ProjectService;
 import xyz.lsgdut.dhxt.service.UserService;
@@ -80,14 +81,14 @@ public class ProjectServiceImpl implements ProjectService {
             List<TbSecondPartyKey> servers = secondPartyMapper.selectByExample(example2);
 
             //查询这些乙方的信息
-            List<TbUser> serversInfo = new ArrayList<>();
+            List<UserVO> serversInfo = new ArrayList<>();
             for(TbSecondPartyKey secondPartyKey : servers){
-                TbUser user = userService.queryByUserId(secondPartyKey.getUserId());
+                UserVO user = userService.queryByUserId(secondPartyKey.getUserId());
                 serversInfo.add(user);
             }
             //查询客户信息
             TbTradeCategory category = categoryService.getCategoryById(project.getProjectCategoryId());
-            TbUser user = userService.queryByUserId(project.getCustomerId());
+            UserVO user = userService.queryByUserId(project.getCustomerId());
 
             //返回信息
             ProjectVO projectVO = new ProjectVO(project,category.getCategoryName(),user);
@@ -125,14 +126,14 @@ public class ProjectServiceImpl implements ProjectService {
             List<TbSecondPartyKey> servers = secondPartyMapper.selectByExample(example2);
 
             //查询这些乙方的信息
-            List<TbUser> serversInfo = new ArrayList<>();
+            List<UserVO> serversInfo = new ArrayList<>();
             for(TbSecondPartyKey secondPartyKey : servers){
-                TbUser user = userService.queryByUserId(secondPartyKey.getUserId());
+                UserVO user = userService.queryByUserId(secondPartyKey.getUserId());
                 serversInfo.add(user);
             }
             //查询客户信息
             TbTradeCategory category = categoryService.getCategoryById(project.getProjectCategoryId());
-            TbUser user = userService.queryByUserId(project.getCustomerId());
+            UserVO user = userService.queryByUserId(project.getCustomerId());
 
             //返回信息
             ProjectVO projectVO = new ProjectVO(project,category.getCategoryName(),user);
@@ -158,14 +159,14 @@ public class ProjectServiceImpl implements ProjectService {
             List<TbSecondPartyKey> servers = secondPartyMapper.selectByExample(example2);
 
             //查询这些乙方的信息
-            List<TbUser> serversInfo = new ArrayList<>();
+            List<UserVO> serversInfo = new ArrayList<>();
             for(TbSecondPartyKey secondPartyKey : servers){
-                TbUser user = userService.queryByUserId(secondPartyKey.getUserId());
+                UserVO user = userService.queryByUserId(secondPartyKey.getUserId());
                 serversInfo.add(user);
             }
             //查询客户信息
             TbTradeCategory category = categoryService.getCategoryById(project.getProjectCategoryId());
-            TbUser user = userService.queryByUserId(project.getCustomerId());
+            UserVO user = userService.queryByUserId(project.getCustomerId());
 
             //返回信息
             ProjectVO projectVO = new ProjectVO(project,category.getCategoryName(),user);
@@ -192,14 +193,14 @@ public class ProjectServiceImpl implements ProjectService {
             List<TbSecondPartyKey> servers = secondPartyMapper.selectByExample(example2);
 
             //查询这些乙方的信息
-            List<TbUser> serversInfo = new ArrayList<>();
+            List<UserVO> serversInfo = new ArrayList<>();
             for(TbSecondPartyKey secondPartyKey : servers){
-                TbUser user = userService.queryByUserId(secondPartyKey.getUserId());
+                UserVO user = userService.queryByUserId(secondPartyKey.getUserId());
                 serversInfo.add(user);
             }
             //查询客户信息
             TbTradeCategory category = categoryService.getCategoryById(project.getProjectCategoryId());
-            TbUser user = userService.queryByUserId(project.getCustomerId());
+            UserVO user = userService.queryByUserId(project.getCustomerId());
 
             //返回信息
             ProjectVO projectVO = new ProjectVO(project,category.getCategoryName(),user);

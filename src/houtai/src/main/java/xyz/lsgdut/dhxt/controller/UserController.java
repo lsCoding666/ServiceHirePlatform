@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import xyz.lsgdut.dhxt.pojo.TbUser;
+import xyz.lsgdut.dhxt.pojo.VO.UserVO;
 import xyz.lsgdut.dhxt.service.UserService;
 import xyz.lsgdut.dhxt.utils.JSONResult;
 
@@ -22,9 +23,9 @@ public class UserController {
     @RequestMapping("/userLogin")
     @ResponseBody
     public JSONResult userLogin(@RequestBody TbUser user, HttpServletRequest request) {
-        List<TbUser> list = userService.userLogin(user.getUserName(), user.getUserPassword());
+        List<UserVO> list = userService.userLogin(user.getUserName(), user.getUserPassword());
         if (list.size() == 0) {
-            return JSONResult.errorMsg("登录失败");
+            return JSONResult.errorMsg("用户名或者是密码错误");
         } else {
             request.getSession().setAttribute("userId", list.get(0).getUserId());
             return JSONResult.ok(list.get(0));
@@ -41,11 +42,11 @@ public class UserController {
     @RequestMapping("/show")
     @ResponseBody
     public JSONResult show(HttpServletRequest request) {
-        String userId = request.getSession().getAttribute("userId").toString();
-        TbUser user = userService.queryByUserId(Integer.parseInt(userId));
-        if (userId.length() == 0) {
-            return JSONResult.errorMsg("请先登录");
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
+        if (userId == null) {
+            return JSONResult.errorMsg("未登录");
         }
+        UserVO user = userService.queryByUserId(userId);
         if (user != null) {
             return JSONResult.ok(user);
         } else {
@@ -58,7 +59,7 @@ public class UserController {
     @ResponseBody
     public JSONResult getUserInfoById(TbUser user, HttpServletRequest request) {
         Integer userId = (Integer) request.getSession().getAttribute("userId");
-        TbUser user2 = userService.queryByUserId(userId);
+        UserVO user2 = userService.queryByUserId(userId);
         if (user2 == null) {
             return JSONResult.errorMsg("查询失败");
         } else {
@@ -73,7 +74,7 @@ public class UserController {
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbUser> users = userService.getAllUsers();
+        List<UserVO> users = userService.getAllUsers();
         return JSONResult.ok(users);
     }
 
@@ -85,7 +86,7 @@ public class UserController {
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbUser> users = userService.getAllCustomers();
+        List<UserVO> users = userService.getAllCustomers();
         return JSONResult.ok(users);
     }
 
@@ -96,7 +97,7 @@ public class UserController {
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbUser> users = userService.getAllServers();
+        List<UserVO> users = userService.getAllServers();
         return JSONResult.ok(users);
     }
 
@@ -108,7 +109,7 @@ public class UserController {
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbUser> users = userService.getAllAdmins();
+        List<UserVO> users = userService.getAllAdmins();
         return JSONResult.ok(users);
     }
 
@@ -119,7 +120,7 @@ public class UserController {
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbUser> users = userService.getAllEmployee();
+        List<UserVO> users = userService.getAllEmployee();
         return JSONResult.ok(users);
     }
 }

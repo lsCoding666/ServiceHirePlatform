@@ -1,5 +1,8 @@
 package xyz.lsgdut.dhxt.pojo.VO;
 
+import xyz.lsgdut.dhxt.pojo.TbRole;
+import xyz.lsgdut.dhxt.pojo.TbUser;
+
 public class UserVO {
 
     private String userPassword;
@@ -30,6 +33,19 @@ public class UserVO {
         return roleName;
     }
 
+    public UserVO(TbUser tbuser, TbRole role){
+        this.userSex = tbuser.getUserSex();
+        this.userPhoneNum = tbuser.getUserPhoneNum();
+        this.userWechat = tbuser.getUserWechat();
+        this.userQqNum = tbuser.getUserQqNum();
+        this.userEmailAddress = tbuser.getUserEmailAddress();
+        this.userAddress = tbuser.getUserAddress();
+        this.userCategoryId = tbuser.getUserCategoryId();
+        this.userId = tbuser.getUserId();
+        this.userName = tbuser.getUserName();
+        this.roleId = tbuser.getRoleId();
+        this.roleName = role.getRoleName();
+    }
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }

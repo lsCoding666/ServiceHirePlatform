@@ -2,7 +2,6 @@ package xyz.lsgdut.dhxt.pojo.VO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import xyz.lsgdut.dhxt.pojo.TbProject;
-import xyz.lsgdut.dhxt.pojo.TbUser;
 
 import java.util.Date;
 import java.util.List;
@@ -23,32 +22,32 @@ public class ProjectVO {
 
     private Integer customerId;
 
-    List<TbUser> serves;
+    List<UserVO> serves;
 
-    public List<TbUser> getServes() {
+    public List<UserVO> getServes() {
         return serves;
     }
 
-    public void setServes(List<TbUser> serves) {
+    public void setServes(List<UserVO> serves) {
         this.serves = serves;
     }
 
-    public TbUser getCustomer() {
+    public UserVO getCustomer() {
         return customer;
     }
 
-    public void setCustomer(TbUser customer) {
+    public void setCustomer(UserVO customer) {
         this.customer = customer;
     }
 
-    private TbUser customer;
+    private UserVO customer;
 
 
     private String html;
 
     private String categoryName;
 
-    public ProjectVO(TbProject project, String categoryName, TbUser customer) {
+    public ProjectVO(TbProject project, String categoryName, UserVO customer) {
         this.projectCategoryId = project.getProjectCategoryId();
         this.categoryName = categoryName;
         this.projectId = project.getProjectId();
