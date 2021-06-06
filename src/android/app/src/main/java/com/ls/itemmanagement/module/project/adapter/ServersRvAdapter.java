@@ -1,7 +1,5 @@
 package com.ls.itemmanagement.module.project.adapter;
 
-import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -20,7 +18,7 @@ public class ServersRvAdapter  extends BaseQuickAdapter<ProjectResult.ServesDTO,
     private List<ProjectResult.ServesDTO> servers = new ArrayList<>();
 
     public ServersRvAdapter(@Nullable List<ProjectResult.ServesDTO> data) {
-        super(R.layout.view_server, data);
+        super(R.layout.view_user, data);
     }
 
 

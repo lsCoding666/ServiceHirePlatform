@@ -24,14 +24,32 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/customer_name" />
+                    android:text="@string/user_name" />
 
                 <TextView
-                    android:id="@+id/customer_name_tv"
+                    android:id="@+id/user_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:text="客户名称"
+                    android:text=""
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/sex" />
+
+                <TextView
+                    android:id="@+id/sex_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:text=""
                     android:textColor="@color/black" />
             </LinearLayout>
 
@@ -42,14 +60,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/create_time" />
+                    android:text="@string/prompt_phone" />
 
                 <TextView
-                    android:id="@+id/create_time_tv"
+                    android:id="@+id/phoneNum_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:text="发布时间"
+                    android:text=""
                     android:textColor="@color/black" />
             </LinearLayout>
 
@@ -60,14 +78,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/start_time" />
+                    android:text="@string/wechet" />
 
                 <TextView
-                    android:id="@+id/start_time_tv"
+                    android:id="@+id/wechat_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:text="开始时间"
+                    android:text=""
                     android:textColor="@color/black" />
             </LinearLayout>
 
@@ -78,14 +96,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/end_time" />
+                    android:text="@string/email" />
 
                 <TextView
-                    android:id="@+id/end_time_tv"
+                    android:id="@+id/email_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:text="结束时间"
+                    android:text=""
                     android:textColor="@color/black" />
             </LinearLayout>
 
@@ -96,51 +114,40 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/project_category" />
+                    android:text="@string/category" />
 
                 <TextView
-                    android:id="@+id/project_category_tv"
+                    android:id="@+id/user_category_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:text="项目类型"
+                    android:text=""
                     android:textColor="@color/black" />
             </LinearLayout>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:text="项目人员"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/project_user_rv"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/role" />
+
+                <TextView
+                    android:id="@+id/user_role_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:text=""
+                    android:textColor="@color/black" />
+            </LinearLayout>
 
 
-            <Button
-                android:id="@+id/manage_project_user_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/manage_project_user" />
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:text="项目详情"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/project_detail_tv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

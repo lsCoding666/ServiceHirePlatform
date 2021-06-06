@@ -3,6 +3,7 @@ package com.ls.itemmanagement.module.userreglog.view;
 
 import com.ls.itemmanagement.base.BaseView;
 import com.ls.itemmanagement.bean.LoginResult;
+import com.ls.itemmanagement.bean.UserInfo;
 
 public interface ILoginView extends BaseView {
     /**
@@ -10,7 +11,7 @@ public interface ILoginView extends BaseView {
      *
      * @param successMessage 成功信息
      */
-    void showLoginSuccess(String successMessage, LoginResult result);
+    void showLoginSuccess(String successMessage, UserInfo usreInfo);
 
     /**
      * 显示登录失败

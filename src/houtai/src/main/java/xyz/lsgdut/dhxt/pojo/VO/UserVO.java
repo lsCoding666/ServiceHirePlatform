@@ -1,6 +1,7 @@
 package xyz.lsgdut.dhxt.pojo.VO;
 
 import xyz.lsgdut.dhxt.pojo.TbRole;
+import xyz.lsgdut.dhxt.pojo.TbTradeCategory;
 import xyz.lsgdut.dhxt.pojo.TbUser;
 
 public class UserVO {
@@ -29,11 +30,21 @@ public class UserVO {
 
     private String roleName;
 
+    private TbTradeCategory category;
+
     public String getRoleName() {
         return roleName;
     }
 
-    public UserVO(TbUser tbuser, TbRole role){
+    public TbTradeCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(TbTradeCategory category) {
+        this.category = category;
+    }
+
+    public UserVO(TbUser tbuser, TbRole role,TbTradeCategory category){
         this.userSex = tbuser.getUserSex();
         this.userPhoneNum = tbuser.getUserPhoneNum();
         this.userWechat = tbuser.getUserWechat();
@@ -45,6 +56,7 @@ public class UserVO {
         this.userName = tbuser.getUserName();
         this.roleId = tbuser.getRoleId();
         this.roleName = role.getRoleName();
+        this.category = category;
     }
     public void setRoleName(String roleName) {
         this.roleName = roleName;

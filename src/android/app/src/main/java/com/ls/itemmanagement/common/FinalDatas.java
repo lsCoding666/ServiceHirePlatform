@@ -23,6 +23,7 @@ public class FinalDatas {
     public static final int MAX_LENGTH_PASSWORD = 1;
 
     public static final String GET_SQUARE_ITEMS_PAGE = "getSquarePage";
+    public static final String USER_ID = "USER_ID";
     //public static HashMap<String, String> orderType = new HashMap<>();
     public static String[][] sortType
             = new String[][]{{"最新发布", "time"},

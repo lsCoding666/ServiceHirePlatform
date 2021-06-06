@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.lsgdut.dhxt.mapper.TbUserMapper;
 import xyz.lsgdut.dhxt.pojo.TbRole;
+import xyz.lsgdut.dhxt.pojo.TbTradeCategory;
 import xyz.lsgdut.dhxt.pojo.TbUser;
 import xyz.lsgdut.dhxt.pojo.TbUserExample;
 import xyz.lsgdut.dhxt.pojo.VO.UserVO;
+import xyz.lsgdut.dhxt.service.CategoryService;
 import xyz.lsgdut.dhxt.service.RoleService;
 import xyz.lsgdut.dhxt.service.UserService;
 
@@ -22,6 +24,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     RoleService roleService;
 
+    @Autowired
+    CategoryService categoryService;
+
     @Override
     public List<UserVO> userLogin(String userName, String password) {
         TbUserExample userExample = new TbUserExample();
@@ -33,7 +38,8 @@ public class UserServiceImpl implements UserService {
         List<UserVO> userVOS = new ArrayList<>();
         for (TbUser user : users) {
             TbRole role = roleService.getRolesById(user.getRoleId());
-            UserVO uservo = new UserVO(user, role);
+            TbTradeCategory category = categoryService.getCategoryById(user.getUserCategoryId());
+            UserVO uservo = new UserVO(user, role,category);
             userVOS.add(uservo);
         }
         return userVOS;
@@ -47,7 +53,8 @@ public class UserServiceImpl implements UserService {
         List<TbUser> users = userMapper.selectByExample(userExample);
 
         TbRole role = roleService.getRolesById(users.get(0).getRoleId());
-        UserVO uservo = new UserVO(users.get(0), role);
+        TbTradeCategory category = categoryService.getCategoryById(users.get(0).getUserCategoryId());
+        UserVO uservo = new UserVO(users.get(0), role,category);
 
         return uservo;
     }
@@ -71,7 +78,8 @@ public class UserServiceImpl implements UserService {
         List<UserVO> userVOS = new ArrayList<>();
         for (TbUser user : users) {
             TbRole role = roleService.getRolesById(user.getRoleId());
-            UserVO uservo = new UserVO(user, role);
+            TbTradeCategory category = categoryService.getCategoryById(user.getUserCategoryId());
+            UserVO uservo = new UserVO(user, role,category);
             userVOS.add(uservo);
         }
         return userVOS;
@@ -86,7 +94,8 @@ public class UserServiceImpl implements UserService {
         List<UserVO> userVOS = new ArrayList<>();
         for (TbUser user : users) {
             TbRole role = roleService.getRolesById(user.getRoleId());
-            UserVO uservo = new UserVO(user, role);
+            TbTradeCategory category = categoryService.getCategoryById(user.getUserCategoryId());
+            UserVO uservo = new UserVO(user, role,category);
             userVOS.add(uservo);
         }
         return userVOS;
@@ -101,7 +110,8 @@ public class UserServiceImpl implements UserService {
         List<UserVO> userVOS = new ArrayList<>();
         for (TbUser user : users) {
             TbRole role = roleService.getRolesById(user.getRoleId());
-            UserVO uservo = new UserVO(user, role);
+            TbTradeCategory category = categoryService.getCategoryById(user.getUserCategoryId());
+            UserVO uservo = new UserVO(user, role,category);
             userVOS.add(uservo);
         }
         return userVOS;
@@ -116,7 +126,8 @@ public class UserServiceImpl implements UserService {
         List<UserVO> userVOS = new ArrayList<>();
         for (TbUser user : users) {
             TbRole role = roleService.getRolesById(user.getRoleId());
-            UserVO uservo = new UserVO(user, role);
+            TbTradeCategory category = categoryService.getCategoryById(user.getUserCategoryId());
+            UserVO uservo = new UserVO(user, role,category);
             userVOS.add(uservo);
         }
         return userVOS;
@@ -131,7 +142,8 @@ public class UserServiceImpl implements UserService {
         List<UserVO> userVOS = new ArrayList<>();
         for (TbUser user : users) {
             TbRole role = roleService.getRolesById(user.getRoleId());
-            UserVO uservo = new UserVO(user, role);
+            TbTradeCategory category = categoryService.getCategoryById(user.getUserCategoryId());
+            UserVO uservo = new UserVO(user, role,category);
             userVOS.add(uservo);
         }
         return userVOS;

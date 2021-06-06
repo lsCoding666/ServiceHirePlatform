@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.ls.itemmanagement.R;
 import com.ls.itemmanagement.module.main.fragment.ProjectFragment;
+import com.ls.itemmanagement.module.main.fragment.UserFragment;
 import com.ls.itemmanagement.util.XUtil;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new ProjectFragment();
             case 1:
-                return new ProjectFragment();
+                return new UserFragment();
             case 2:
                 return new ProjectFragment();
             case 3:

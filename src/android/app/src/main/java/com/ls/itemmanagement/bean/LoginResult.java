@@ -5,25 +5,43 @@ package com.ls.itemmanagement.bean;
  * @create 2020/9/22 23:51
  */
 public class LoginResult {
-
-
-    private int userId;
-    private String userName;
     private String userPassword;
-    private Object userSex;
-    private Object userPhoneNum;
-    private Object userWechat;
-    private Object userQqNum;
-    private Object userEmailAddress;
-    private Object userAddress;
-    private Object userCategoryId;
-    private int roleId;
 
-    public int getUserId() {
+    private String userSex;
+
+    private String userPhoneNum;
+
+    private String userWechat;
+
+    private String userQqNum;
+
+    private String userEmailAddress;
+
+    private String userAddress;
+
+    private Integer userCategoryId;
+
+    private Integer userId;
+
+    private String userName;
+
+    private Integer roleId;
+
+    private String roleName;
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -35,75 +53,75 @@ public class LoginResult {
         this.userName = userName;
     }
 
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
     public String getUserPassword() {
         return userPassword;
     }
 
     public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+        this.userPassword = userPassword == null ? null : userPassword.trim();
     }
 
-    public Object getUserSex() {
+    public String getUserSex() {
         return userSex;
     }
 
-    public void setUserSex(Object userSex) {
-        this.userSex = userSex;
+    public void setUserSex(String userSex) {
+        this.userSex = userSex == null ? null : userSex.trim();
     }
 
-    public Object getUserPhoneNum() {
+    public String getUserPhoneNum() {
         return userPhoneNum;
     }
 
-    public void setUserPhoneNum(Object userPhoneNum) {
-        this.userPhoneNum = userPhoneNum;
+    public void setUserPhoneNum(String userPhoneNum) {
+        this.userPhoneNum = userPhoneNum == null ? null : userPhoneNum.trim();
     }
 
-    public Object getUserWechat() {
+    public String getUserWechat() {
         return userWechat;
     }
 
-    public void setUserWechat(Object userWechat) {
-        this.userWechat = userWechat;
+    public void setUserWechat(String userWechat) {
+        this.userWechat = userWechat == null ? null : userWechat.trim();
     }
 
-    public Object getUserQqNum() {
+    public String getUserQqNum() {
         return userQqNum;
     }
 
-    public void setUserQqNum(Object userQqNum) {
-        this.userQqNum = userQqNum;
+    public void setUserQqNum(String userQqNum) {
+        this.userQqNum = userQqNum == null ? null : userQqNum.trim();
     }
 
-    public Object getUserEmailAddress() {
+    public String getUserEmailAddress() {
         return userEmailAddress;
     }
 
-    public void setUserEmailAddress(Object userEmailAddress) {
-        this.userEmailAddress = userEmailAddress;
+    public void setUserEmailAddress(String userEmailAddress) {
+        this.userEmailAddress = userEmailAddress == null ? null : userEmailAddress.trim();
     }
 
-    public Object getUserAddress() {
+    public String getUserAddress() {
         return userAddress;
     }
 
-    public void setUserAddress(Object userAddress) {
-        this.userAddress = userAddress;
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress == null ? null : userAddress.trim();
     }
 
-    public Object getUserCategoryId() {
+    public Integer getUserCategoryId() {
         return userCategoryId;
     }
 
-    public void setUserCategoryId(Object userCategoryId) {
+    public void setUserCategoryId(Integer userCategoryId) {
         this.userCategoryId = userCategoryId;
-    }
-
-    public int getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
     }
 }

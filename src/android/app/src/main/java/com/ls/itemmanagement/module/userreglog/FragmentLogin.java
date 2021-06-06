@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ls.itemmanagement.bean.UserInfo;
 import com.ls.itemmanagement.module.main.activity.MainActivity;
 import com.ls.itemmanagement.R;
 import com.ls.itemmanagement.base.BaseFragment;
@@ -103,7 +104,7 @@ public class FragmentLogin extends BaseFragment<LoginPresenter> implements View.
     }
 
     @Override
-    public void showLoginSuccess(String successMessage, LoginResult result) {
+    public void showLoginSuccess(String successMessage, UserInfo userInfo) {
         Toast.makeText(getActivity(),successMessage,Toast.LENGTH_SHORT).show();
        //cookies = SpUtil.getString(FinalDatas.COOKIE);
 

@@ -33,6 +33,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".module.project.activity.ProjectInfoActivity"/>
+        <activity android:name=".module.user.activity.UserInfoActivity" />
     </application>
 
 </manifest>

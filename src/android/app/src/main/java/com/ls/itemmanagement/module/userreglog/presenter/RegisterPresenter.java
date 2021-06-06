@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.ls.itemmanagement.base.BaseBean;
 import com.ls.itemmanagement.base.BaseObserver;
 import com.ls.itemmanagement.base.BasePresenter;
-import com.ls.itemmanagement.bean.LoginInfo;
+import com.ls.itemmanagement.bean.UserInfo;
 import com.ls.itemmanagement.bean.LoginResult;
 import com.ls.itemmanagement.bean.RegisterInfo;
 import com.ls.itemmanagement.module.userreglog.view.IRegisterView;
@@ -44,9 +44,11 @@ public class RegisterPresenter extends BasePresenter<IRegisterView> {
 
     private void loginAfterRegister(String userName, String password) {
 
-        LoginInfo loginInfo = new LoginInfo(userName, password);
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserName(userName);
+        userInfo.setUserPassword(password);
         Gson gson = new Gson();
-        String info = gson.toJson(loginInfo);
+        String info = gson.toJson(userInfo);
         RequestBody requestBody = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), info);
         addDisposable(apiServer.login(requestBody), new BaseObserver<BaseBean<List<LoginResult>>>(baseView, false) {
             @Override
