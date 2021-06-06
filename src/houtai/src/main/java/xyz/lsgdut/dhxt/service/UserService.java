@@ -11,4 +11,14 @@ public interface UserService {
     TbUser queryByUserId(int userId);
 
     String userRegister(TbUser user);
+
+    List<TbUser> getAllUsers();
+
+    List<TbUser> getAllServers();
+
+    List<TbUser> getAllCustomers();
+
+    List<TbUser> getAllAdmins();
+
+    List<TbUser> getAllEmployee();
 }

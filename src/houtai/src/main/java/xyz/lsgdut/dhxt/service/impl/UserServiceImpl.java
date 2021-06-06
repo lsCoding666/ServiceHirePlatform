@@ -45,6 +45,54 @@ public class UserServiceImpl  implements UserService {
         }
     }
 
+    @Override
+    public List<TbUser> getAllUsers() {
+        TbUserExample userExample = new TbUserExample();
+        TbUserExample.Criteria criteria = userExample.createCriteria();
+        criteria.andUserIdIsNotNull();
+        List<TbUser> users = userMapper.selectByExample(userExample);
+
+        for(TbUser user:users){
+
+        }
+        return users;
+    }
+
+    @Override
+    public List<TbUser> getAllServers() {
+        TbUserExample userExample = new TbUserExample();
+        TbUserExample.Criteria criteria = userExample.createCriteria();
+        criteria.andRoleIdEqualTo(3);
+        List<TbUser> users = userMapper.selectByExample(userExample);
+        return users;
+    }
+
+    @Override
+    public List<TbUser> getAllCustomers() {
+        TbUserExample userExample = new TbUserExample();
+        TbUserExample.Criteria criteria = userExample.createCriteria();
+        criteria.andRoleIdEqualTo(2);
+        List<TbUser> users = userMapper.selectByExample(userExample);
+        return users;
+    }
+
+    @Override
+    public List<TbUser> getAllEmployee() {
+        TbUserExample userExample = new TbUserExample();
+        TbUserExample.Criteria criteria = userExample.createCriteria();
+        criteria.andRoleIdEqualTo(1);
+        List<TbUser> users = userMapper.selectByExample(userExample);
+        return users;
+    }
+
+    @Override
+    public List<TbUser> getAllAdmins() {
+        TbUserExample userExample = new TbUserExample();
+        TbUserExample.Criteria criteria = userExample.createCriteria();
+        criteria.andRoleIdEqualTo(4);
+        List<TbUser> users = userMapper.selectByExample(userExample);
+        return users;
+    }
 
 
 }
