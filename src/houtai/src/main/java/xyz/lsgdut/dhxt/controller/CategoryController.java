@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import xyz.lsgdut.dhxt.pojo.TbProject;
 import xyz.lsgdut.dhxt.pojo.TbTradeCategory;
 import xyz.lsgdut.dhxt.pojo.TbUser;
 import xyz.lsgdut.dhxt.service.CategoryService;
@@ -35,20 +34,20 @@ public class CategoryController {
         }
     }
 
-    //根据类型获得项目
-    @RequestMapping("/getProjectByCategoryId")
-    @ResponseBody
-    public JSONResult getProjectByCategoryId(@RequestBody TbTradeCategory category, HttpServletRequest request) {
-        if (request.getSession().getAttribute("userId").toString() == null) {
-            return JSONResult.errorMsg("未登录");
-        }
-        List<TbProject> result = categoryService.getProjectByCategoryId(category.getCategoryId());
-        if (result == null) {
-            return JSONResult.errorMsg("查询失败");
-        } else {
-            return JSONResult.ok(result);
-        }
-    }
+//    //根据类型获得项目
+//    @RequestMapping("/getProjectByCategoryId")
+//    @ResponseBody
+//    public JSONResult getProjectByCategoryId(@RequestBody TbTradeCategory category, HttpServletRequest request) {
+//        if (request.getSession().getAttribute("userId").toString() == null) {
+//            return JSONResult.errorMsg("未登录");
+//        }
+//        List<TbProject> result = categoryService.getProjectByCategoryId(category.getCategoryId());
+//        if (result == null) {
+//            return JSONResult.errorMsg("查询失败");
+//        } else {
+//            return JSONResult.ok(result);
+//        }
+//    }
 
     //根据类型获得客户
     @RequestMapping("/getCustomerByCategoryId")
@@ -118,9 +117,9 @@ public class CategoryController {
         if (request.getSession().getAttribute("userId").toString() == null) {
             return JSONResult.errorMsg("未登录");
         }
-        TbTradeCategory result = categoryService.getAllCategories();
-        if (result == null) {
-            return JSONResult.errorMsg("更新失败");
+        List<TbTradeCategory> result = categoryService.getAllCategories();
+        if (result.size()==0 ) {
+            return JSONResult.errorMsg("查询失败");
         } else {
             return JSONResult.ok(result);
         }

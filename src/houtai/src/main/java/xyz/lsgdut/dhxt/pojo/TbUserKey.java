@@ -5,6 +5,8 @@ public class TbUserKey {
 
     private String userName;
 
+    private Integer roleId;
+
     public Integer getUserId() {
         return userId;
     }
@@ -19,5 +21,13 @@ public class TbUserKey {
 
     public void setUserName(String userName) {
         this.userName = userName == null ? null : userName.trim();
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 }

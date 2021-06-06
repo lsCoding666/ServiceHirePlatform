@@ -14,6 +14,7 @@
                         connectionURL="jdbc:mysql://pan.lsgdut.fun:3306/serviceHire?serverTimezone=CTT&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true"
                         userId="king"
                         password="826514ls@ASDF">
+            <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
 
         <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
@@ -49,7 +50,9 @@
         <table tableName="tb_second_party"></table>
         <table tableName="tb_schedule"></table>
         <table tableName="tb_trade_category"></table>
-        <table tableName="tb_project"></table>
+        <table tableName="tb_project">
+            <columnOverride column="html" jdbcType="BLOB" />
+        </table>
         <!-- 有些表的字段需要指定java类型
          <table schema="" tableName="">
             <columnOverride column="" javaType="" />

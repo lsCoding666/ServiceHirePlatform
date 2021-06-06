@@ -17,8 +17,6 @@ public class TbUser extends TbUserKey {
 
     private Integer userCategoryId;
 
-    private Integer roleId;
-
     public String getUserPassword() {
         return userPassword;
     }
@@ -81,13 +79,5 @@ public class TbUser extends TbUserKey {
 
     public void setUserCategoryId(Integer userCategoryId) {
         this.userCategoryId = userCategoryId;
-    }
-
-    public Integer getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
     }
 }

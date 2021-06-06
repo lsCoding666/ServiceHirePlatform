@@ -52,4 +52,17 @@ public class UserController {
             return JSONResult.errorMsg("未登录");
         }
     }
+
+
+    @RequestMapping("/get")
+    @ResponseBody
+    public JSONResult getUserInfoById(TbUser user ,HttpServletRequest request) {
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
+        TbUser user2 = userService.queryByUserId(userId);
+        if(user2==null){
+            return JSONResult.errorMsg("查询失败");
+        }else{
+            return JSONResult.ok(user2);
+        }
+    }
 }

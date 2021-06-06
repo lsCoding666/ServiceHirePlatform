@@ -7,17 +7,17 @@ public class TbProject {
 
     private String projectName;
 
-    private String projectHtml;
-
     private Date projectInsertDate;
 
     private Date projectStartDate;
 
-    private String prjectEndDate;
+    private Date projectEndDate;
 
     private Integer projectCategoryId;
 
     private Integer customerId;
+
+    private String html;
 
     public Integer getProjectId() {
         return projectId;
@@ -33,14 +33,6 @@ public class TbProject {
 
     public void setProjectName(String projectName) {
         this.projectName = projectName == null ? null : projectName.trim();
-    }
-
-    public String getProjectHtml() {
-        return projectHtml;
-    }
-
-    public void setProjectHtml(String projectHtml) {
-        this.projectHtml = projectHtml == null ? null : projectHtml.trim();
     }
 
     public Date getProjectInsertDate() {
@@ -59,12 +51,12 @@ public class TbProject {
         this.projectStartDate = projectStartDate;
     }
 
-    public String getPrjectEndDate() {
-        return prjectEndDate;
+    public Date getProjectEndDate() {
+        return projectEndDate;
     }
 
-    public void setPrjectEndDate(String prjectEndDate) {
-        this.prjectEndDate = prjectEndDate == null ? null : prjectEndDate.trim();
+    public void setProjectEndDate(Date projectEndDate) {
+        this.projectEndDate = projectEndDate;
     }
 
     public Integer getProjectCategoryId() {
@@ -81,5 +73,13 @@ public class TbProject {
 
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
+    }
+
+    public String getHtml() {
+        return html;
+    }
+
+    public void setHtml(String html) {
+        this.html = html == null ? null : html.trim();
     }
 }

@@ -26,5 +26,8 @@ public interface CategoryService {
     TbTradeCategory updateCategory(TbTradeCategory tbTradeCategory);
 
     //查询分类
-    TbTradeCategory getAllCategories();
+    List<TbTradeCategory> getAllCategories();
+
+    //根据项目id查询分类信息
+    TbTradeCategory getCategoryById(int categoryId);
 }

@@ -4,12 +4,14 @@
   <resultMap id="BaseResultMap" type="xyz.lsgdut.dhxt.pojo.TbProject">
     <id column="project_id" jdbcType="INTEGER" property="projectId" />
     <result column="project_name" jdbcType="VARCHAR" property="projectName" />
-    <result column="project_html" jdbcType="VARCHAR" property="projectHtml" />
     <result column="project_insert_date" jdbcType="DATE" property="projectInsertDate" />
     <result column="project_start_date" jdbcType="DATE" property="projectStartDate" />
-    <result column="prject_end_date" jdbcType="VARCHAR" property="prjectEndDate" />
+    <result column="project_end_date" jdbcType="DATE" property="projectEndDate" />
     <result column="project_category_id" jdbcType="INTEGER" property="projectCategoryId" />
     <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="xyz.lsgdut.dhxt.pojo.TbProject">
+    <result column="html" jdbcType="BLOB" property="html" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,9 +72,28 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    project_id, project_name, project_html, project_insert_date, project_start_date, 
-    prject_end_date, project_category_id, customer_id
+    project_id, project_name, project_insert_date, project_start_date, project_end_date, 
+    project_category_id, customer_id
   </sql>
+  <sql id="Blob_Column_List">
+    html
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="xyz.lsgdut.dhxt.pojo.TbProjectExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_project
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" parameterType="xyz.lsgdut.dhxt.pojo.TbProjectExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -87,9 +108,11 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from tb_project
     where project_id = #{projectId,jdbcType=INTEGER}
   </select>
@@ -104,12 +127,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="xyz.lsgdut.dhxt.pojo.TbProject">
-    insert into tb_project (project_id, project_name, project_html, 
-      project_insert_date, project_start_date, prject_end_date, 
-      project_category_id, customer_id)
-    values (#{projectId,jdbcType=INTEGER}, #{projectName,jdbcType=VARCHAR}, #{projectHtml,jdbcType=VARCHAR}, 
-      #{projectInsertDate,jdbcType=DATE}, #{projectStartDate,jdbcType=DATE}, #{prjectEndDate,jdbcType=VARCHAR}, 
-      #{projectCategoryId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER})
+    insert into tb_project (project_id, project_name, project_insert_date, 
+      project_start_date, project_end_date, project_category_id, 
+      customer_id, html)
+    values (#{projectId,jdbcType=INTEGER}, #{projectName,jdbcType=VARCHAR}, #{projectInsertDate,jdbcType=DATE}, 
+      #{projectStartDate,jdbcType=DATE}, #{projectEndDate,jdbcType=DATE}, #{projectCategoryId,jdbcType=INTEGER}, 
+      #{customerId,jdbcType=INTEGER}, #{html,jdbcType=BLOB})
   </insert>
   <insert id="insertSelective" parameterType="xyz.lsgdut.dhxt.pojo.TbProject">
     insert into tb_project
@@ -120,23 +143,23 @@
       <if test="projectName != null">
         project_name,
       </if>
-      <if test="projectHtml != null">
-        project_html,
-      </if>
       <if test="projectInsertDate != null">
         project_insert_date,
       </if>
       <if test="projectStartDate != null">
         project_start_date,
       </if>
-      <if test="prjectEndDate != null">
-        prject_end_date,
+      <if test="projectEndDate != null">
+        project_end_date,
       </if>
       <if test="projectCategoryId != null">
         project_category_id,
       </if>
       <if test="customerId != null">
         customer_id,
+      </if>
+      <if test="html != null">
+        html,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -146,23 +169,23 @@
       <if test="projectName != null">
         #{projectName,jdbcType=VARCHAR},
       </if>
-      <if test="projectHtml != null">
-        #{projectHtml,jdbcType=VARCHAR},
-      </if>
       <if test="projectInsertDate != null">
         #{projectInsertDate,jdbcType=DATE},
       </if>
       <if test="projectStartDate != null">
         #{projectStartDate,jdbcType=DATE},
       </if>
-      <if test="prjectEndDate != null">
-        #{prjectEndDate,jdbcType=VARCHAR},
+      <if test="projectEndDate != null">
+        #{projectEndDate,jdbcType=DATE},
       </if>
       <if test="projectCategoryId != null">
         #{projectCategoryId,jdbcType=INTEGER},
       </if>
       <if test="customerId != null">
         #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="html != null">
+        #{html,jdbcType=BLOB},
       </if>
     </trim>
   </insert>
@@ -181,17 +204,14 @@
       <if test="record.projectName != null">
         project_name = #{record.projectName,jdbcType=VARCHAR},
       </if>
-      <if test="record.projectHtml != null">
-        project_html = #{record.projectHtml,jdbcType=VARCHAR},
-      </if>
       <if test="record.projectInsertDate != null">
         project_insert_date = #{record.projectInsertDate,jdbcType=DATE},
       </if>
       <if test="record.projectStartDate != null">
         project_start_date = #{record.projectStartDate,jdbcType=DATE},
       </if>
-      <if test="record.prjectEndDate != null">
-        prject_end_date = #{record.prjectEndDate,jdbcType=VARCHAR},
+      <if test="record.projectEndDate != null">
+        project_end_date = #{record.projectEndDate,jdbcType=DATE},
       </if>
       <if test="record.projectCategoryId != null">
         project_category_id = #{record.projectCategoryId,jdbcType=INTEGER},
@@ -199,7 +219,24 @@
       <if test="record.customerId != null">
         customer_id = #{record.customerId,jdbcType=INTEGER},
       </if>
+      <if test="record.html != null">
+        html = #{record.html,jdbcType=BLOB},
+      </if>
     </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tb_project
+    set project_id = #{record.projectId,jdbcType=INTEGER},
+      project_name = #{record.projectName,jdbcType=VARCHAR},
+      project_insert_date = #{record.projectInsertDate,jdbcType=DATE},
+      project_start_date = #{record.projectStartDate,jdbcType=DATE},
+      project_end_date = #{record.projectEndDate,jdbcType=DATE},
+      project_category_id = #{record.projectCategoryId,jdbcType=INTEGER},
+      customer_id = #{record.customerId,jdbcType=INTEGER},
+      html = #{record.html,jdbcType=BLOB}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -208,10 +245,9 @@
     update tb_project
     set project_id = #{record.projectId,jdbcType=INTEGER},
       project_name = #{record.projectName,jdbcType=VARCHAR},
-      project_html = #{record.projectHtml,jdbcType=VARCHAR},
       project_insert_date = #{record.projectInsertDate,jdbcType=DATE},
       project_start_date = #{record.projectStartDate,jdbcType=DATE},
-      prject_end_date = #{record.prjectEndDate,jdbcType=VARCHAR},
+      project_end_date = #{record.projectEndDate,jdbcType=DATE},
       project_category_id = #{record.projectCategoryId,jdbcType=INTEGER},
       customer_id = #{record.customerId,jdbcType=INTEGER}
     <if test="_parameter != null">
@@ -224,17 +260,14 @@
       <if test="projectName != null">
         project_name = #{projectName,jdbcType=VARCHAR},
       </if>
-      <if test="projectHtml != null">
-        project_html = #{projectHtml,jdbcType=VARCHAR},
-      </if>
       <if test="projectInsertDate != null">
         project_insert_date = #{projectInsertDate,jdbcType=DATE},
       </if>
       <if test="projectStartDate != null">
         project_start_date = #{projectStartDate,jdbcType=DATE},
       </if>
-      <if test="prjectEndDate != null">
-        prject_end_date = #{prjectEndDate,jdbcType=VARCHAR},
+      <if test="projectEndDate != null">
+        project_end_date = #{projectEndDate,jdbcType=DATE},
       </if>
       <if test="projectCategoryId != null">
         project_category_id = #{projectCategoryId,jdbcType=INTEGER},
@@ -242,16 +275,29 @@
       <if test="customerId != null">
         customer_id = #{customerId,jdbcType=INTEGER},
       </if>
+      <if test="html != null">
+        html = #{html,jdbcType=BLOB},
+      </if>
     </set>
+    where project_id = #{projectId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="xyz.lsgdut.dhxt.pojo.TbProject">
+    update tb_project
+    set project_name = #{projectName,jdbcType=VARCHAR},
+      project_insert_date = #{projectInsertDate,jdbcType=DATE},
+      project_start_date = #{projectStartDate,jdbcType=DATE},
+      project_end_date = #{projectEndDate,jdbcType=DATE},
+      project_category_id = #{projectCategoryId,jdbcType=INTEGER},
+      customer_id = #{customerId,jdbcType=INTEGER},
+      html = #{html,jdbcType=BLOB}
     where project_id = #{projectId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="xyz.lsgdut.dhxt.pojo.TbProject">
     update tb_project
     set project_name = #{projectName,jdbcType=VARCHAR},
-      project_html = #{projectHtml,jdbcType=VARCHAR},
       project_insert_date = #{projectInsertDate,jdbcType=DATE},
       project_start_date = #{projectStartDate,jdbcType=DATE},
-      prject_end_date = #{prjectEndDate,jdbcType=VARCHAR},
+      project_end_date = #{projectEndDate,jdbcType=DATE},
       project_category_id = #{projectCategoryId,jdbcType=INTEGER},
       customer_id = #{customerId,jdbcType=INTEGER}
     where project_id = #{projectId,jdbcType=INTEGER}

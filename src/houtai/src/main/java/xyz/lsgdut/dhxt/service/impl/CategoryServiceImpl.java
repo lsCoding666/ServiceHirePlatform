@@ -54,7 +54,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public TbTradeCategory addCategory(TbTradeCategory tbTradeCategory) {
         int i = categoryMapper.insert(tbTradeCategory);
-        if (i==0){
+        if (i == 0) {
             return null;
         }
         return tbTradeCategory;
@@ -63,7 +63,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public TbTradeCategory delegateCategory(TbTradeCategory tbTradeCategory) {
         int i = categoryMapper.deleteByPrimaryKey(tbTradeCategory.getCategoryId());
-        if (i==0){
+        if (i == 0) {
             return null;
         }
         return tbTradeCategory;
@@ -72,18 +72,31 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public TbTradeCategory updateCategory(TbTradeCategory tbTradeCategory) {
         int i = categoryMapper.updateByPrimaryKey(tbTradeCategory);
-        if (i==0){
+        if (i == 0) {
             return null;
         }
         return null;
     }
 
     @Override
-    public TbTradeCategory getAllCategories() {
+    public List<TbTradeCategory> getAllCategories() {
         TbTradeCategoryExample example = new TbTradeCategoryExample();
         TbTradeCategoryExample.Criteria criteria = example.createCriteria();
         criteria.andCategoryIdIsNotNull();
-        categoryMapper.selectByExample(example);
-        return null;
+        List<TbTradeCategory> tbTradeCategories = categoryMapper.selectByExample(example);
+        return tbTradeCategories;
+    }
+
+    @Override
+    public TbTradeCategory getCategoryById(int categoryId) {
+        TbTradeCategoryExample example = new TbTradeCategoryExample();
+        TbTradeCategoryExample.Criteria criteria = example.createCriteria();
+        criteria.andCategoryIdEqualTo(categoryId);
+        List<TbTradeCategory> tradeCategories = categoryMapper.selectByExample(example);
+        if (tradeCategories.size()==0){
+            return null;
+        }else{
+            return tradeCategories.get(0);
+        }
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import xyz.lsgdut.dhxt.pojo.BO.JoinProjectBO;
 import xyz.lsgdut.dhxt.pojo.TbProject;
+import xyz.lsgdut.dhxt.pojo.VO.ProjectVO;
+import xyz.lsgdut.dhxt.service.CategoryService;
 import xyz.lsgdut.dhxt.service.ProjectService;
 import xyz.lsgdut.dhxt.utils.JSONResult;
 
@@ -19,6 +21,9 @@ public class ProjectController {
 
     @Autowired
     ProjectService projectService;
+
+    @Autowired
+    CategoryService categoryService;
 
     //客户发布项目
     @RequestMapping("/publishProject")
@@ -59,7 +64,7 @@ public class ProjectController {
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbProject> projects = projectService.getProjectInfoById(project.getProjectId());
+        List<ProjectVO> projects = projectService.getProjectInfoById(project.getProjectId());
         if (projects.size() == 0) {
             return JSONResult.errorMsg("查询失败");
         } else {
@@ -77,7 +82,7 @@ public class ProjectController {
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbProject> projects = projectService.getMinePublishProjectInfo(userId);
+        List<ProjectVO> projects = projectService.getMinePublishProjectInfo(userId);
         if (projects.size() == 0) {
             return JSONResult.errorMsg("查询失败");
         } else {
@@ -93,7 +98,8 @@ public class ProjectController {
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbProject> projects = projectService.getMineServeProjectInfo(userId);
+        List<ProjectVO> projects = projectService.getMineServeProjectInfo(userId);
+
         if (projects.size() == 0) {
             return JSONResult.errorMsg("查询失败");
         } else {
@@ -109,7 +115,8 @@ public class ProjectController {
         if (userId == null) {
             return JSONResult.errorMsg("未登录");
         }
-        List<TbProject> projects = projectService.getAllProjects();
+        List<ProjectVO> projects = projectService.getAllProjects();
+
         if (projects.size() == 0) {
             return JSONResult.errorMsg("查询失败");
         } else {

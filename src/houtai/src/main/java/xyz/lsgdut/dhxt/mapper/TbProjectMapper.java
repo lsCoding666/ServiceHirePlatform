@@ -16,15 +16,21 @@ public interface TbProjectMapper {
 
     int insertSelective(TbProject record);
 
+    List<TbProject> selectByExampleWithBLOBs(TbProjectExample example);
+
     List<TbProject> selectByExample(TbProjectExample example);
 
     TbProject selectByPrimaryKey(Integer projectId);
 
     int updateByExampleSelective(@Param("record") TbProject record, @Param("example") TbProjectExample example);
 
+    int updateByExampleWithBLOBs(@Param("record") TbProject record, @Param("example") TbProjectExample example);
+
     int updateByExample(@Param("record") TbProject record, @Param("example") TbProjectExample example);
 
     int updateByPrimaryKeySelective(TbProject record);
+
+    int updateByPrimaryKeyWithBLOBs(TbProject record);
 
     int updateByPrimaryKey(TbProject record);
 }

@@ -262,76 +262,6 @@ public class TbProjectExample {
             return (Criteria) this;
         }
 
-        public Criteria andProjectHtmlIsNull() {
-            addCriterion("project_html is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlIsNotNull() {
-            addCriterion("project_html is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlEqualTo(String value) {
-            addCriterion("project_html =", value, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlNotEqualTo(String value) {
-            addCriterion("project_html <>", value, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlGreaterThan(String value) {
-            addCriterion("project_html >", value, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlGreaterThanOrEqualTo(String value) {
-            addCriterion("project_html >=", value, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlLessThan(String value) {
-            addCriterion("project_html <", value, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlLessThanOrEqualTo(String value) {
-            addCriterion("project_html <=", value, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlLike(String value) {
-            addCriterion("project_html like", value, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlNotLike(String value) {
-            addCriterion("project_html not like", value, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlIn(List<String> values) {
-            addCriterion("project_html in", values, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlNotIn(List<String> values) {
-            addCriterion("project_html not in", values, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlBetween(String value1, String value2) {
-            addCriterion("project_html between", value1, value2, "projectHtml");
-            return (Criteria) this;
-        }
-
-        public Criteria andProjectHtmlNotBetween(String value1, String value2) {
-            addCriterion("project_html not between", value1, value2, "projectHtml");
-            return (Criteria) this;
-        }
-
         public Criteria andProjectInsertDateIsNull() {
             addCriterion("project_insert_date is null");
             return (Criteria) this;
@@ -452,73 +382,63 @@ public class TbProjectExample {
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateIsNull() {
-            addCriterion("prject_end_date is null");
+        public Criteria andProjectEndDateIsNull() {
+            addCriterion("project_end_date is null");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateIsNotNull() {
-            addCriterion("prject_end_date is not null");
+        public Criteria andProjectEndDateIsNotNull() {
+            addCriterion("project_end_date is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateEqualTo(String value) {
-            addCriterion("prject_end_date =", value, "prjectEndDate");
+        public Criteria andProjectEndDateEqualTo(Date value) {
+            addCriterionForJDBCDate("project_end_date =", value, "projectEndDate");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateNotEqualTo(String value) {
-            addCriterion("prject_end_date <>", value, "prjectEndDate");
+        public Criteria andProjectEndDateNotEqualTo(Date value) {
+            addCriterionForJDBCDate("project_end_date <>", value, "projectEndDate");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateGreaterThan(String value) {
-            addCriterion("prject_end_date >", value, "prjectEndDate");
+        public Criteria andProjectEndDateGreaterThan(Date value) {
+            addCriterionForJDBCDate("project_end_date >", value, "projectEndDate");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateGreaterThanOrEqualTo(String value) {
-            addCriterion("prject_end_date >=", value, "prjectEndDate");
+        public Criteria andProjectEndDateGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("project_end_date >=", value, "projectEndDate");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateLessThan(String value) {
-            addCriterion("prject_end_date <", value, "prjectEndDate");
+        public Criteria andProjectEndDateLessThan(Date value) {
+            addCriterionForJDBCDate("project_end_date <", value, "projectEndDate");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateLessThanOrEqualTo(String value) {
-            addCriterion("prject_end_date <=", value, "prjectEndDate");
+        public Criteria andProjectEndDateLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("project_end_date <=", value, "projectEndDate");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateLike(String value) {
-            addCriterion("prject_end_date like", value, "prjectEndDate");
+        public Criteria andProjectEndDateIn(List<Date> values) {
+            addCriterionForJDBCDate("project_end_date in", values, "projectEndDate");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateNotLike(String value) {
-            addCriterion("prject_end_date not like", value, "prjectEndDate");
+        public Criteria andProjectEndDateNotIn(List<Date> values) {
+            addCriterionForJDBCDate("project_end_date not in", values, "projectEndDate");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateIn(List<String> values) {
-            addCriterion("prject_end_date in", values, "prjectEndDate");
+        public Criteria andProjectEndDateBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("project_end_date between", value1, value2, "projectEndDate");
             return (Criteria) this;
         }
 
-        public Criteria andPrjectEndDateNotIn(List<String> values) {
-            addCriterion("prject_end_date not in", values, "prjectEndDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrjectEndDateBetween(String value1, String value2) {
-            addCriterion("prject_end_date between", value1, value2, "prjectEndDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrjectEndDateNotBetween(String value1, String value2) {
-            addCriterion("prject_end_date not between", value1, value2, "prjectEndDate");
+        public Criteria andProjectEndDateNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("project_end_date not between", value1, value2, "projectEndDate");
             return (Criteria) this;
         }
 
