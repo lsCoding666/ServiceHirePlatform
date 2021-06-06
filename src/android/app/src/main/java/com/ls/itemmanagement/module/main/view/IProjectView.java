@@ -1,7 +1,6 @@
 package com.ls.itemmanagement.module.main.view;
 
 
-import com.ls.itemmanagement.base.BaseBean;
 import com.ls.itemmanagement.base.BaseView;
 import com.ls.itemmanagement.bean.ProjectResult;
 

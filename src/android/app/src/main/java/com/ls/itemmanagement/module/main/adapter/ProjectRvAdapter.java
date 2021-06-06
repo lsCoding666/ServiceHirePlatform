@@ -21,6 +21,8 @@ public class ProjectRvAdapter extends BaseQuickAdapter<ProjectResult, BaseViewHo
 
     private List<ProjectResult> projects = new ArrayList<>();
 
+
+
     public ProjectRvAdapter(@Nullable List<ProjectResult> data) {
         super(R.layout.view_task, data);
     }
@@ -28,6 +30,5 @@ public class ProjectRvAdapter extends BaseQuickAdapter<ProjectResult, BaseViewHo
     @Override
     protected void convert(@NonNull BaseViewHolder helper, ProjectResult project) {
         helper.setText(R.id.task_title, project.getProjectName());
-        ImageView ivTaskIcon = helper.getView(R.id.task_image_iv);
     }
 }

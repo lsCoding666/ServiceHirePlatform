@@ -33,9 +33,6 @@ public class ToastUtil {
         } else {
             toast.setText(msg);
         }
-        LinearLayout linearLayout = (LinearLayout) toast.getView();
-        TextView messageTextView = (TextView) linearLayout.getChildAt(0);
-        messageTextView.setTextSize(15.0F);
         toast.show();
     }
 

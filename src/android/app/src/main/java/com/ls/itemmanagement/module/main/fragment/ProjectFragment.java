@@ -15,11 +15,13 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.gyf.immersionbar.ImmersionBar;
 import com.ls.itemmanagement.R;
 import com.ls.itemmanagement.base.BaseFragment;
-import com.ls.itemmanagement.base.BasePresenter;
 import com.ls.itemmanagement.bean.ProjectResult;
+import com.ls.itemmanagement.common.FinalDatas;
 import com.ls.itemmanagement.module.main.adapter.ProjectRvAdapter;
 import com.ls.itemmanagement.module.main.presenter.ProjectPresenter;
 import com.ls.itemmanagement.module.main.view.IProjectView;
+import com.ls.itemmanagement.module.project.activity.ProjectInfoActivity;
+import com.ls.itemmanagement.util.ToastUtil;
 import com.ls.itemmanagement.util.XUtil;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.stx.xhb.xbanner.XBanner;
@@ -86,9 +88,9 @@ public class ProjectFragment extends BaseFragment<ProjectPresenter> implements I
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 List<ProjectResult> projectList = adapter.getData();
-//                Intent intent = new Intent(getActivity(), ProjectDetailActivity.class);
-//                intent.putExtra("projectId", projectList.get(position).getId());
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), ProjectInfoActivity.class);
+                intent.putExtra(FinalDatas.PROJECT_ID, projectList.get(position).getProjectId());
+                startActivity(intent);
             }
         });
     }
@@ -116,6 +118,6 @@ public class ProjectFragment extends BaseFragment<ProjectPresenter> implements I
 
     @Override
     public void getAllProjectFailed(String failedMsg) {
-
+        ToastUtil.showToast(failedMsg);
     }
 }

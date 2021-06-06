@@ -3,6 +3,9 @@ package com.ls.itemmanagement.common;
 import java.util.HashMap;
 
 public class FinalDatas {
+
+    public static final String PROJECT_ID = "PROJECT_ID";
+
     /**
      * 请求mediaType
      */

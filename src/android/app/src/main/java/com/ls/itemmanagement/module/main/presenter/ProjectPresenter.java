@@ -23,7 +23,7 @@ public class ProjectPresenter  extends BasePresenter<IProjectView> {
 
             @Override
             public void onError(String msg) {
-                baseView.getAllProjectFailed("获取所有项目失败");
+                baseView.getAllProjectFailed(msg);
             }
         });
     }

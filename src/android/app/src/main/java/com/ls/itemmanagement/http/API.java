@@ -12,11 +12,8 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
-import ren.yale.android.retrofitcachelibrx2.anno.Cache;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 /**
  * @Author 许朋友爱玩
@@ -45,6 +42,10 @@ public class API {
         //管理员获得所有项目
         @POST("project/getAllProjects")
         Observable<BaseBean<List<ProjectResult>>> getAllProjects();
+
+        //根据id获得项目信息
+        @POST("project/getProjectInfoById")
+        Observable<BaseBean<ProjectResult>> getProjectInfoById(@Body RequestBody projectInfo);
 
     }
 }

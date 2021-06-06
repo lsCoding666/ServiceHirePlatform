@@ -57,5 +57,11 @@
     <string name="manage_user">管理人员</string>
     <string name="schedule">时间表</string>
     <string name="title">标题</string>
+    <string name="manage_project_user">管理项目人员</string>
+    <string name="customer_name">客户名称</string>
+    <string name="create_time">发布时间</string>
+    <string name="start_time">开始时间</string>
+    <string name="end_time">结束时间</string>
+    <string name="project_category">项目类型</string>
 
 </resources>
